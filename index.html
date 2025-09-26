@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Escolar</title>
+    <link rel="stylesheet" href="src/style/style..css">
+</head>
+<body>
+    <div class="container">
+        <!-- SIDEBAR -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>🎓 Sistema Escolar</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" onclick="mostrarSecao('turmas')">📚 Turmas</a></li>
+                <li><a href="#" onclick="mostrarSecao('alunos')">👨‍🎓 Alunos</a></li>
+                <li><a href="#" onclick="mostrarSecao('notas')">📝 Notas</a></li>
+            </ul>
+        </nav>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+      
+            <section id="secao-turmas" class="section hidden">
+                <h2>📚 Gerenciar Turmas</h2>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label>Número da Turma:</label>
+                        <input type="number" id="inputnumero" placeholder="Ex: 101">
+                    </div>
+                    <div class="form-group">
+                        <label>Nome da Turma:</label>
+                        <input type="text" id="inputnomeTurma" placeholder="Ex: Programação Web">
+                    </div>
+                    <button onclick="gerenciadorTurmas.adicionarTurma()">✅ Adicionar Turma</button>
+                    <button onclick="toggleTabela('tabelaTurma')">📊 Ver Turmas</button>
+                </div>
+                
+                <div id="tabelaTurma-container" class="tabela-container hidden">
+                    <h3>Turmas Cadastradas</h3>
+                    <table id="tabelaTurma">
+                        <thead>
+                            <tr>
+                                <th>Número</th>
+                                <th>Nome</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                       
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+      
+            <section id="secao-alunos" class="section hidden">
+                <h2>👨‍🎓 Gerenciar Alunos</h2>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label>Selecionar Turma:</label>
+                        <select id="selectTurma">
+                            <option value="">Selecione uma turma</option>
+                        </select>
+                        <button onclick="gerenciadorAlunos.atualizarSelectTurmas()">🔄 Atualizar Turmas</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Matrícula:</label>
+                        <input type="number" id="inputmatricula" placeholder="Ex: 2024001">
+                    </div>
+                    <div class="form-group">
+                        <label>Nome do Aluno:</label>
+                        <input type="text" id="inputnomeAluno" placeholder="Ex: João Silva">
+                    </div>
+                    <button onclick="gerenciadorAlunos.adicionarAluno()">✅ Adicionar Aluno</button>
+                    <button onclick="toggleTabela('tabelaAluno')">📊 Ver Alunos</button>
+                </div>
+                
+                <div id="tabelaAluno-container" class="tabela-container hidden">
+                    <h3>Alunos Cadastrados</h3>
+                    <table id="tabelaAluno">
+                        <thead>
+                            <tr>
+                                <th>Matrícula</th>
+                                <th>Nome</th>
+                                <th>Turma</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                   
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
+            <section id="secao-notas" class="section hidden">
+                <h2>📝 Gerenciar Notas</h2>
+                <div class="form-container">
+                    <div class="form-group">
+                        <label>Selecionar Aluno:</label>
+                        <select id="selectMatricula">
+                            <option value="">Selecione um aluno</option>
+                        </select>
+                        <button onclick="gerenciadorNotas.atualizarSelectMatriculas()">🔄 Atualizar Alunos</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Nota AV1:</label>
+                        <input type="number" id="inputav1" step="0.1" min="0" max="10" placeholder="0 a 10">
+                    </div>
+                    <div class="form-group">
+                        <label>Nota AV2:</label>
+                        <input type="number" id="inputav2" step="0.1" min="0" max="10" placeholder="0 a 10">
+                    </div>
+                    <button onclick="gerenciadorNotas.adicionarNotas()">✅ Adicionar Notas</button>
+                    <button onclick="toggleTabela('tabelaNotas')">📊 Ver Notas</button>
+                </div>
+                
+                <div id="tabelaNotas-container" class="tabela-container hidden">
+                    <h3>Notas Cadastradas</h3>
+                    <table id="tabelaNotas">
+                        <thead>
+                            <tr>
+                                <th>Matrícula</th>
+                                <th>Nome</th>
+                                <th>AV1</th>
+                                <th>AV2</th>
+                                <th>Média</th>
+                                <th>Situação</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+  
+    <script src="src/js/classes/turma.js"></script>
+    <script src="src/js/classes/aluno.js"></script>
+    <script src="src/js/classes/notas.js"></script>
+    <script src="src/js/main.js"></script>
+    <script src="src/js/classes/ui.js"></script>
+</body>
+</html>
